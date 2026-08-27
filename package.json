@@ -1,0 +1,12 @@
+{
+  "name": "student-fundamentals-fullstack",
+  "version": "1.0.0",
+  "description": "Student Fundamentals Full Stack Web Application",
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "start:backend": "npm start --prefix backend",
+    "start:frontend": "npm run dev --prefix frontend",
+    "build:frontend": "npm run build --prefix frontend",
+    "start": "node backend/server.js"
+  }
+}
