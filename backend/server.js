@@ -20,14 +20,16 @@ const API_SECRET_KEY = process.env.API_SECRET_KEY || '';
 app.use(cors());
 app.use(express.json());
 
+const { isSupabaseConfigured } = require('./db/supabaseClient');
+
 // API Health Check with Secret Key verification
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
     app: 'Student Fundamentals Backend API',
-    apiKeyConfigured: !!API_SECRET_KEY,
-    keySnippet: API_SECRET_KEY.slice(0, 10) + '...'
+    supabaseConnected: isSupabaseConfigured(),
+    apiKeyConfigured: !!API_SECRET_KEY
   });
 });
 
